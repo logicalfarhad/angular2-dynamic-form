@@ -1,0 +1,31 @@
+<div class="container">
+<div class="row"><div class="col-md-2"></div>
+<div class="col-md-8">
+  <button class="btn btn-primary" (click)="add()">Add</button>
+</div>
+<div class="col-md-2"></div>
+</div>
+  <div class="row">
+    <div class="col-md-4"><code><pre>{{userList | json}}</pre></code></div>
+    <div class="col-md-8">
+      <form [formGroup]="userFormGroup">
+        <div formArrayName="userList">
+          <table class="table table-bordered">
+            <tr>
+              <th>Name</th>
+              <th>User Name</th>
+              <th>Email</th>
+            </tr>
+            <tbody>
+              <tr [formGroupName]="i" *ngFor="let user of userFormGroup.controls.userList.controls; let i = index">
+                <td><input type="text" class="form-control" formControlName="name" /></td>
+                <td><input type="text" class="form-control" formControlName="username" /></td>
+                <td><input type="text" class="form-control" formControlName="email"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
